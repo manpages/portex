@@ -7,9 +7,11 @@ while 42:
     line = sys.stdin.readline()
     if not line: break
 
-    print("{got: \"",line.rstrip(),"\",", sep='')
-    print(" bytes: \"",len(line),"\",", sep='')
-    print(" time: \"",time.ctime(),"\"}", sep='')
-    print("COMMIT")
+    response = "{got:\"" + line.rstrip() + "\",\n" + \
+               " now:\"" + time.ctime()  + "\"}\n" + \
+               "COMMIT\n"
+
+    sys.stdout.write(response)
+
     sys.stdout.flush()
 
